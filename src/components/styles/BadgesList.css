@@ -1,0 +1,41 @@
+.Badge{
+    margin-bottom: 10px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 3px solid #ddd;
+    border-right: 3px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.Badge__avatar{
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.Badge__detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Badge__detail-twitter{
+    color: #0095ff;
+}
+
+.Badge__twitterIcon{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-image: url("../../images/twitter-logo.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    vertical-align: middle;
+}
+
+p{
+    margin-bottom: 0;
+}
