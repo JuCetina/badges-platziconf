@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './global.css';
 
-import BadgesListPage from './pages/BadgesListPage';
+import App from './components/App';
 
 const container = document.getElementById('root');
 
-ReactDOM.render(<BadgesListPage />, container);
+ReactDOM.render(<App />, container);
 
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './styles/BadgesListPage.css'
 
@@ -51,7 +52,7 @@ export default function BadgesListPage(){
 
             <div className="Badges__container">
                 <div className="Badges__buttons">
-                    <a className="btn btn-primary" href="/badges/new">New Badge</a>
+                    <Link className="btn btn-primary" to="/badges/new">New Badge</Link>
                 </div>
 
                 <div>

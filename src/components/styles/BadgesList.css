@@ -1,4 +1,4 @@
-.Badge{
+.BadgeItem{
     margin-bottom: 10px;
     padding: 10px;
     border-top: 1px solid #ddd;
@@ -11,22 +11,22 @@
     align-items: center;
 }
 
-.Badge__avatar{
+.BadgeItem__avatar{
     border-radius: 50%;
     margin-right: 10px;
 }
 
-.Badge__detail{
+.BadgeItem__detail{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.Badge__detail-twitter{
+.BadgeItem__detail-twitter{
     color: #0095ff;
 }
 
-.Badge__twitterIcon{
+.BadgeItem__twitterIcon{
     width: 40px;
     height: 40px;
     display: inline-block;
