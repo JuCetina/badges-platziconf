@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import './styles/BadgesListPage.css'
 
-import Navbar from '../components/Navbar';
 import confLogo from '../images/badge-header.svg';
 import BadgesList from '../components/BadgesList';
 
@@ -40,8 +39,7 @@ export default function BadgesListPage(){
           ]
     );
     return(
-        <div>
-            <Navbar />
+        <>
             <div>
                 <div className="Badges__hero">
                     <div className="Badges__container">
@@ -52,7 +50,9 @@ export default function BadgesListPage(){
 
             <div className="Badges__container">
                 <div className="Badges__buttons">
-                    <Link className="btn btn-primary" to="/badges/new">New Badge</Link>
+                    <Link className="btn btn-primary" to="/badges/new">
+                        New Badge
+                    </Link>
                 </div>
 
                 <div>
@@ -61,6 +61,6 @@ export default function BadgesListPage(){
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
