@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Layout from './Layout';
-import BadgePage from '../pages/BadgePage';
+import Home from '../pages/Home';
 import BadgesListPage from '../pages/BadgesListPage';
+import BadgePage from '../pages/BadgePage';
 import NotFound from '../pages/NotFound';
 
 
@@ -12,6 +13,7 @@ export default function App(){
         <BrowserRouter>
             <Layout>
                 <Switch>
+                    <Route exact path="/" component={Home}/>
                     <Route exact path="/badges" component={BadgesListPage} />
                     <Route exact path="/badges/new" component={BadgePage} />
                     <Route component={NotFound}/>
