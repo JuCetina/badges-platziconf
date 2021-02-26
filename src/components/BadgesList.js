@@ -1,8 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './styles/BadgesList.css';
 
-export default function BadgesList({badges}){
+export default function BadgesList({ badges }){
+    if(badges.length === 0){
+        return( 
+            <>
+                <h3>No badges were found</h3>
+                <Link to="badges/new" className="btn btn-primary">
+                    Create the first Badge!
+                </Link>
+            </>
+        )
+    }
+
     return(
         <ul>
             {badges.map((badge) => {

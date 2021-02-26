@@ -34,7 +34,6 @@ export default function BadgePage(){
                 setTwitter(e.target.value);
                 break;
         }
-        // console.log(firstName, lastName, email, jobTitle, twitter);
     }
 
     return (
