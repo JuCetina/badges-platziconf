@@ -21,13 +21,15 @@ export default function BadgesList({ badges }){
                 return(
                     <div className="BadgeItem" key={badge.id}>
                         <div>
-                            <img className="BadgeItem__avatar" src={badge.avatarUrl} alt={badge.firstName}/>
+                            <img className="BadgeItem__avatar" src={badge.avatarUrl} alt={`${badge.firstName} ${badge.lastName} Avatar`}/>
                         </div>
                         <div>
-                            <li className="list-unstyled BadgeItem__detail">
-                                <p><strong>{badge.firstName} {badge.lastName}</strong></p>
-                                <p className="BadgeItem__detail-twitter"><span className="BadgeItem__twitterIcon"></span>@{badge.twitter}</p>
-                                <p>{badge.jobTitle}</p>
+                            <li className="BadgeItem__detail">
+                                <Link className="text-reset text-decoration-none" to={`/badges/${badge.id}/edit`}>
+                                    <p><strong>{badge.firstName} {badge.lastName}</strong></p>
+                                    <p className="BadgeItem__detail-twitter"><span className="BadgeItem__twitterIcon"></span>@{badge.twitter}</p>
+                                    <p>{badge.jobTitle}</p>
+                                </Link>
                             </li>
                         </div>
                     </div>

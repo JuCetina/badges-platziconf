@@ -6,15 +6,9 @@ export default function BadgeForm(props){
         console.log("Se le ha dado click al botón");
     }
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        console.log("El formulario fue enviado");
-    }
-
     return(
-        <div>
-            <h1>New Attendant</h1>
-            <form onSubmit={handleSubmit}>
+        <>
+            <form onSubmit={props.onSubmit}>
                 <div className="form-group">
                     <label>First Name</label>
                     <input onChange={props.onChange} className="form-control" type="text" name="firstName" value={props.firstName}/>
@@ -37,6 +31,9 @@ export default function BadgeForm(props){
                 </div>
                 <button onClick={handleClick} className="btn btn-primary">Save</button>
             </form>
-        </div>
+            {props.error && (
+                <p className="text-danger">{props.error}</p>
+            )}
+        </>
     )
 }

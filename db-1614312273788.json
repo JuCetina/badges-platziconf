@@ -10,13 +10,13 @@
       "avatarUrl": "https://www.gravatar.com/avatar/0fc6d5ee2ee176d4581acf6a7e5644cc?d=identicon"
     },
     {
+      "id": "22330587-c700-4d00-911d-91de63db1f42",
       "firstName": "Dustin",
       "lastName": "Stehr",
       "email": "Lue.Funk@hotmail.com",
       "jobTitle": "Legacy Infrastructure Consultant",
       "twitter": "DustinStehr77585-9157",
-      "avatarUrl": "https://picsum.photos/80",
-      "id": "22330587-c700-4d00-911d-91de63db1f42"
+      "avatarUrl": "https://www.gravatar.com/avatar/272e74beaee600c8ab957ddee8444495?d=identicon"
     },
     {
       "id": "f1183526-aff1-46da-8bfb-976563c6f696",
@@ -44,6 +44,24 @@
       "jobTitle": "Dynamic Tactics Liaison",
       "twitter": "KellyCorkery06275-3676",
       "avatarUrl": "https://www.gravatar.com/avatar/00e35de53a06a655fe5b6ac8b96bdb84?d=identicon"
+    },
+    {
+      "avatarUrl": "https://picsum.photos/200",
+      "firstName": "Ju",
+      "lastName": "Cetina",
+      "email": "ju@ju.com",
+      "jobTitle": "Developer",
+      "twitter": "cetiju",
+      "id": "Dlb4RJc"
+    },
+    {
+      "avatarUrl": "https://picsum.photos/80",
+      "firstName": "Victoria",
+      "lastName": "Cardenas",
+      "email": "v@v.com",
+      "jobTitle": "Software Engineer",
+      "twitter": "Vcc_ss",
+      "id": "5V3uWs3"
     }
   ]
 }

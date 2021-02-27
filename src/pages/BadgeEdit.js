@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import './styles/BadgePage.css';
+import './styles/BadgeEdit.css';
 
 import header from '../images/platziconf-logo.svg';
 
@@ -11,7 +11,7 @@ import BadgeForm from '../components/BadgeForm';
 import api from '../api';
 
 
-export default function BadgePage(props){
+export default function BadgeEdit(props){
 
     const [ firstName, setFirstName ] = useState('');
     const [ lastName, setLastName ] = useState('');
@@ -20,10 +20,31 @@ export default function BadgePage(props){
     const [ twitter, setTwitter ] = useState('');
     const avatarUrl = "https://picsum.photos/80";
 
-    const [ loading, setLoading ] = useState(false);
+    const [ loading, setLoading ] = useState(true);
     const [ error, setError ] = useState('');
 
-    
+    useEffect(
+        async () => {
+            
+            setLoading(true);
+            setError('');
+
+            try{
+                const badge = await api.badges.read(props.match.params.badgeId);
+                setLoading(false);
+
+                setFirstName(badge.firstName);
+                setLastName(badge.lastName);
+                setEmail(badge.email);
+                setJobTitle(badge.jobTitle);
+                setTwitter(badge.twitter);
+
+            } catch(error){
+                setLoading(false);
+                setError(error);
+            }
+        }
+    , []);
 
     const handleChange = e => {
         switch(e.target.name){
@@ -51,7 +72,7 @@ export default function BadgePage(props){
         setError('');
 
         try{
-            await api.badges.create({firstName, lastName, email, jobTitle, twitter, avatarUrl});
+            await api.badges.update(props.match.params.badgeId, {firstName, lastName, email, jobTitle, twitter, avatarUrl});
             setLoading(false);
             props.history.push('/badges');
         } catch(error){
@@ -66,8 +87,8 @@ export default function BadgePage(props){
 
     return (
         <>
-            <div className="BadgePage__hero">
-                <img className="BadgePage__hero-image" src={header} alt="Logo de la conferencia" />
+            <div className="BadgeEdit__hero">
+                <img className="BadgeEdit__hero-image" src={header} alt="Logo de la conferencia" />
             </div>
             <div className="container">
                 <div className="row">
@@ -75,7 +96,7 @@ export default function BadgePage(props){
                         <Badge avatarUrl={avatarUrl} firstName={firstName || 'First_Name'} lastName={lastName || 'Last_Name'} jobTitle={jobTitle || 'Job_Title'} twitter={twitter || 'Twitter_Account'}/>
                     </div>
                     <div className="col-6">
-                        <h1>New Attendant</h1>
+                        <h1>Edit Attendant</h1>
                         <BadgeForm onChange={handleChange} onSubmit={handleSubmit} firstName={firstName} lastName={lastName} email={email} jobTitle={jobTitle} twitter={twitter} error={error.message}/>
                     </div>
                 </div>

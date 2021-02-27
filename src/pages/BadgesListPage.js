@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './styles/BadgesListPage.css'
 
 import PageLoading from '../components/PageLoading';
+import MiniLoader from '../components/MiniLoader';
 import PageError from '../components/PageError';
 
 import confLogo from '../images/badge-header.svg';
@@ -16,21 +17,28 @@ export default function BadgesListPage(){
     const [ error, setError ] = useState(null);
     const [ data, setData ] = useState([]);
 
-    useEffect( async() => {
-        setLoading(true);
-        setError(null);
+    useEffect( () => {
+        const idInterval = setInterval(
+            async () => {
+        
+                setLoading(true);
+                setError(null);
+                
+                try{
+                    const badgesList = await api.badges.list();
+                    setLoading(false);
+                    setData(badgesList);
+                } catch(error){
+                    setLoading(false);
+                    setError(error);
+                }
+            }
+        , 5000);
+        return () => clearInterval(idInterval);
+    }
+    , []);
 
-        try{
-            const badgesList = await api.badges.list();
-            setLoading(false);
-            setData(badgesList);
-        } catch(error){
-            setLoading(false);
-            setError(error);
-        }
-    }, []);
-
-    if(loading === true){
+    if(loading === true && data.length === 0){
         return <PageLoading />;
     }
 
@@ -54,12 +62,11 @@ export default function BadgesListPage(){
                         New Badge
                     </Link>
                 </div>
-
-                <div>
-                    <div className="Badges__container">
-                        <BadgesList badges={data}/>
-                    </div>
-                </div>
+                
+                <BadgesList badges={data}/>
+                
+                {loading && <MiniLoader />}
+                
             </div>
         </>
     )
