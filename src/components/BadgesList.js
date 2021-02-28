@@ -25,7 +25,7 @@ export default function BadgesList({ badges }){
                         </div>
                         <div>
                             <li className="BadgeItem__detail">
-                                <Link className="text-reset text-decoration-none" to={`/badges/${badge.id}/edit`}>
+                                <Link className="text-reset text-decoration-none" to={`/badges/${badge.id}`}>
                                     <p><strong>{badge.firstName} {badge.lastName}</strong></p>
                                     <p className="BadgeItem__detail-twitter"><span className="BadgeItem__twitterIcon"></span>@{badge.twitter}</p>
                                     <p>{badge.jobTitle}</p>
